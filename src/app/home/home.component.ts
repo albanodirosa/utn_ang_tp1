@@ -1,14 +1,25 @@
 import { Component } from '@angular/core';
+import { ProductosService } from '../productos.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  nombre_persona="nombre_persona"
+  loading = true;
+  productos: any = [];
 
-  setName(){
-    this.nombre_persona="nombre_persona"
+  constructor(private productosService: ProductosService) {
+    this.productos = this.productosService.getAll();
+  }
+
+  filtrar() {
+    this.productos = [
+      {
+        id: 2,
+        title: 'moto Z',
+      },
+    ];
   }
 }

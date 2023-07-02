@@ -1,4 +1,9 @@
-<p>Hola {{ nombre_persona }}</p>
+<h1>Productos</h1>
+<div *ngIf="loading">Cargando...</div>
+<div [hidden]="!loading">Cargando...</div>
 
-<input type="text" [(ngModel)]="nombre_persona">
-
+<div *ngFor="let producto of productos | async">
+  <h2>{{ producto.title }}</h2>
+  <p>{{ producto.price | currency }}</p>
+</div>
+<button (click)="filtrar()">Filtrar</button>

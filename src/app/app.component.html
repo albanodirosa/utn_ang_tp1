@@ -1,5 +1,4 @@
-<app-registro></app-registro>
-<app-login></app-login>
-<app-home></app-home>
-<app-catalogo></app-catalogo>
-<app-detalle></app-detalle>
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened><app-navbar></app-navbar></mat-drawer>
+  <mat-drawer-content><router-outlet></router-outlet></mat-drawer-content>
+</mat-drawer-container>

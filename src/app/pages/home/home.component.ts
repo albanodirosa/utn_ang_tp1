@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ProductosService } from '../productos.service';
+import { ProductosService } from '../../services/productos.service';
+import { Producto } from 'src/app/interfaces/producto';
 
 @Component({
   selector: 'app-home',
@@ -8,18 +9,13 @@ import { ProductosService } from '../productos.service';
 })
 export class HomeComponent {
   loading = true;
-  productos: any = [];
+  productos!: Promise<Producto[]>;
 
   constructor(private productosService: ProductosService) {
     this.productos = this.productosService.getAll();
   }
-
-  filtrar() {
-    this.productos = [
-      {
-        id: 2,
-        title: 'moto Z',
-      },
-    ];
+  handleReload() {
+    console.log('handleReload');
+    this.productos = this.productosService.getAll();
   }
 }

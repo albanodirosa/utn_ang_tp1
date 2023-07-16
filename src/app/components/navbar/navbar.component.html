@@ -1,0 +1,21 @@
+<mat-nav-list>
+  <div mat-subheader>Menú</div>
+  <mat-divider></mat-divider>
+  <mat-list-item class="link" routerLink="/">
+    <mat-icon matListItemIcon>home</mat-icon>
+    <div matListItemTitle>Inicio</div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item class="link" routerLink="/registro" *ngIf="!isLogin">
+    <mat-icon matListItemIcon>person_add</mat-icon>
+    <div matListItemTitle>Registrarme</div>
+  </mat-list-item>
+  <mat-list-item class="link" routerLink="/ingreso" *ngIf="!isLogin">
+    <mat-icon matListItemIcon>login</mat-icon>
+    <div matListItemTitle>Ingresar</div>
+  </mat-list-item>
+  <mat-list-item class="link" (click)="logout()" *ngIf="isLogin">
+    <mat-icon matListItemIcon>logout</mat-icon>
+    <div matListItemTitle>Salir</div>
+  </mat-list-item>
+</mat-nav-list>

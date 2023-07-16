@@ -1,0 +1,6 @@
+<h1>Productos</h1>
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile *ngFor="let producto of productos | async">
+    <app-producto [data]="producto" (reload)="handleReload()"> </app-producto>
+  </mat-grid-tile>
+</mat-grid-list>
